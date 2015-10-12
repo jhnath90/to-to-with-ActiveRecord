@@ -1,0 +1,17 @@
+<h1>To Do</h1>
+
+<p>Here are all your tasks:</p>
+
+<ul>
+  <% @tasks.not_done().each do |task| %>
+  <li><%= task.description %> <a href="/tasks/ <%=task.id() %>/edit">Update this task list:</a></li>
+  <% end %>
+</ul>
+
+<%= erb(:errors, :locals => { :object => @task }) %>
+
+<p>Create a new task:</p>
+
+<form action='/tasks' method='post'>
+  <%= erb(:form) %>
+</form>
